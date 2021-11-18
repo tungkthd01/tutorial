@@ -72,7 +72,7 @@ class TickePerformancesSerializer(serializers.ModelSerializer):
             return total_price
         else:
             return  ""
-            
+
 #2-1)Create drawing record
 class DrawingSerializer(serializers.ModelSerializer):
 
