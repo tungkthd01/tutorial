@@ -21,6 +21,8 @@ class EventListApit(serializers.ModelSerializer):
 
         model = Image_paths
         fields = ['event_id','title','image_url','type']
+
+#Validate the presence of access user.
 class PerformanceTicket(serializers.ModelSerializer):
     is_archived = serializers.SerializerMethodField()
     ticket_available_flag = serializers.SerializerMethodField()
@@ -39,7 +41,8 @@ class PerformanceTicket(serializers.ModelSerializer):
             return ticket_available_flag
         else:
             return  0
-
+"""Generate JSON response.								
+	3-1)Mapping"""
 class TickePerformancesSerializer(serializers.ModelSerializer):
     start_datetime = serializers.SerializerMethodField()
     end_datetime = serializers.SerializerMethodField()
@@ -69,6 +72,8 @@ class TickePerformancesSerializer(serializers.ModelSerializer):
             return total_price
         else:
             return  ""
+            
+#2-1)Create drawing record
 class DrawingSerializer(serializers.ModelSerializer):
 
     class Meta:

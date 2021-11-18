@@ -60,6 +60,7 @@ class EventListView(APIView):
                 events = events.filter(type__in = ['1','2'])
                 return Response(status=status.HTTP_404_NOT_FOUND)
         return Response(eventview,status=status.HTTP_200_OK)
+
 # /api/v1/ticket
 class TicketPerformance(APIView):
     #ticket = Tickets.objects.prefetch_related('performance','events').all()
@@ -70,6 +71,7 @@ class TicketPerformance(APIView):
     # def get(self,request):
     # #return Response(status=status.HTTP_200_OK)
 
+# /api/v1/ticket/{ticket_id}
 class TicketPerformanceDetail(APIView):
     def get_object(self, pk):
         try:
@@ -84,7 +86,7 @@ class TicketPerformanceDetail(APIView):
 
         return Response(serializer.data)
 
-
+# create Drawing data, 3)	Generate JSON response.
 class DrawingsCreat(APIView):
     def get_object(self, pk):
         try:
