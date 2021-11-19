@@ -94,7 +94,7 @@ class DrawingsCreat(APIView):
         except Tickets.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
+    def post(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = PerformanceTicket(snippet)
         id_ticket = serializer.data['ticket_id']
